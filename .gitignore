@@ -485,3 +485,6 @@ $RECYCLE.BIN/
 
 # Mono related files
 .mono
+
+# VSCode
+.vscode
