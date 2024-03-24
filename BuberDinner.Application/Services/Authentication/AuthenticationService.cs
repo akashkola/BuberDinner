@@ -5,7 +5,7 @@ namespace BuberDinner.Application.Services.Authentication;
 public class AuthenticationService : IAuthenticationService
 {
 
-    private IJwtTokenGenerator _jwtTokenGenerator;
+    private readonly IJwtTokenGenerator _jwtTokenGenerator;
 
     public AuthenticationService(IJwtTokenGenerator jwtTokenGenerator)
     {
@@ -27,15 +27,13 @@ public class AuthenticationService : IAuthenticationService
         // TODO: Check if user already exists
 
         // TODO: Create user (generate unique ID)
-
-        // TODO: Create JWT Token
         Guid userId = Guid.NewGuid();
+
         var token = _jwtTokenGenerator.GenerateToken(
             userId,
             firstName,
             lastName
         );
-
 
         return new AuthenticationResult(
             userId,
